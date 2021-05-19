@@ -15,7 +15,7 @@ var data = [10, 5, 12, 15];
             barHeight = 30;
             height = 30;
          
-         var graph = d3.select("#chartArea")
+         var graph = d3.select("#chartAreaModal")
             .append("svg")
             .attr("width", width)
             .attr("height", barHeight * data.length);

@@ -1,253 +1,293 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link href="bootstrap-treeview.css" rel="stylesheet">
-<style>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-aside {
-  width: 30%;
-  padding-left: 15px;
-  margin-left: 15px;
-  float: left;
-  font-style: italic;
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css" />
+
+  <link href="bootstrap-treeview.css" rel="stylesheet">
+  <style>
+    aside {
+      width: 30%;
+      padding-left: 15px;
+      margin-left: 15px;
+      float: left;
+      font-style: italic;
+
+    }
+
+    svg rect {
+      fill: rgb(255, 115, 0);
+
+    }
+
+    svg text {
+      fill: yellow;
+      font: 12px sans-serif;
+      text-anchor: end;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.1/d3.js"></script>
+
+
+  <script type="text/javascript"
+    src="https://cdn.datatables.net/v/bs4/dt-1.10.24/b-1.7.0/r-2.2.7/datatables.min.js"></script>
+
+
+  <script src="bootstrap-treeview.js"></script>
+  <script src="main.js"></script>
+
   
-}
-
-
-svg rect {
-            fill: rgb(14, 18, 224);
-         }
-         
-         svg text {
-            fill: yellow;
-            font: 12px sans-serif;
-            text-anchor: end;
-         }
-
-</style>
+      <div class="row">
+				<div class="logo col-xs-12 col-md-12">
+                <a href="home.html">
+                	<img src="logo.png" alt="">
+                </a>
+         	</div>
+        </div>
     
-  </head>
-  <body>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.1/d3.js"></script>
-
-    <script src="bootstrap-treeview.js"></script>
-
- 
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-          <h1>SUNIL LOGICS</h1> 
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <div id="tree"></div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <h5 class="card-header bg-primary">
-                        Grid
-                    </h5>
-                    <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs">
-                          <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                          </li>
-                        </ul>
-                      </div>
-                    <div class="card-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        #
-                                    </th>
-                                    <th>
-                                        Product
-                                    </th>
-                                    <th>
-                                        Payment Taken
-                                    </th>
-                                    <th>
-                                        Status
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        TB - Monthly
-                                    </td>
-                                    <td>
-                                        01/04/2012
-                                    </td>
-                                    <td>
-                                        Default
-                                    </td>
-                                </tr>
-                                <trs>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        TB - Monthly
-                                    </td>
-                                    <td>
-                                        01/04/2012
-                                    </td>
-                                    <td>
-                                        Approved
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        TB - Monthly
-                                    </td>
-                                    <td>
-                                        02/04/2012
-                                    </td>
-                                    <td>
-                                        Declined
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        3
-                                    </td>
-                                    <td>
-                                        TB - Monthly
-                                    </td>
-                                    <td>
-                                        03/04/2012
-                                    </td>
-                                    <td>
-                                        Pending
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td>
-                                        4
-                                    </td>
-                                    <td>
-                                        TB - Monthly
-                                    </td>
-                                    <td>
-                                        04/04/2012
-                                    </td>
-                                    <td>
-                                        Call in to confirm
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="card-footer">
-                        Card footer
-                    </div>
+      <div style="width: 250px;" id="sidebar">
+        <!-- <div id="tree" class="treeview"></div> -->
+        <div id="menuTree">
+          <ul id="myUL">
+            <li>
+              <div class="caret">
+                <div class="menuItem">
+                  <span class="triangle-right caret-up"></span>
+                  <span>Motor</span>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <h5 class="card-header bg-primary">
-                        Notes
-                    </h5>
-                    <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs">
-                          <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                          </li>
-                        </ul>
-                      </div>
-                    <div class="card-body">
-                        
+              </div>
+              <ul class="nested">
+                <li>
+                  <div>
+                    <div class="menuItem">Gross Before Recoveries</div>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <div class="menuItem">Subrogation Other Recoveries</div>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <div class="menuItem">Net</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="caret">
+                    <div class="menuItem">
+                      <span class="triangle-right caret-up"></span>
+                      <span>Motor</span>
                     </div>
-                    <div class="card-footer">
-                        Card footer
-                    </div>
-                </div>
-                <div class="card" style="margin-top: 15px;">
-                    <h5 class="card-header bg-primary">
-                        Chart
-                    </h5>
-                    <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs">
-                          <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                          </li>
-                        </ul>
+                  </div>
+                  <ul class="nested">
+                    <li>
+                      <div>
+                        <div class="menuItem">Gross Before Recoveries</div>
                       </div>
-                    <div class="card-body">
-                        <div class="col-xs-12 col-lg-6" id="chartArea">
+                    </li>
+                    <li>
+                      <div>
+                        <div class="menuItem">Subrogation Other Recoveries</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="menuItem">Net</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="caret">
+                        <div class="menuItem">
+                          <span class="triangle-right caret-up"></span>
+                          <span>Motor</span>
+                        </div>
+                      </div>
+                      <ul class="nested">
+                        <li>
+                          <div>
+                            <div class="menuItem">Gross Before Recoveries</div>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <div class="menuItem">Subrogation Other Recoveries</div>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <div class="menuItem">Net</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div>
+                <div class="menuItem" style="padding-left: 20px;">Recoveries</div>
+              </div>
+            </li>
 
-                        <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="col-xs-12 col-lg-6" id="chartArea"></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </ul>
         </div>
       </div>
-    </div>
-  </div>
- </div>
-                </div>
+      <div class="col-md-6" id="maintable">
+        <div class="card">
+          <div class="bg-primary card-header">
+            <img id="sidebarIcon" onclick="toggleLeftMenu()" src="./HamBurger.gif" alt="Red dot" />
+          
+            <img class="float-right" id="rightSidebarIcon" onclick="toggleRightMenu()" src="./rightMenu.png" alt="Red dot" />
+          
+          </div>
+          <div class="card-header">
+            <ul class="nav nav-pills card-header-tabs nav-justified">
+              <li class="nav-item">
+                <a class="nav-link active" href="#example">PAID TRIANGLE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#example1">PAID CL</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Employee2">EXPECTED LR</a>
+              </li>
+              <button onclick="myFunction()"><i id="arrowTable" class="fa fa-chevron-circle-right"></i></button>
+            </ul>
+
+          </div>
+          <div class="card-body" id="Employee">
+            <div id="nav1">
+              <table id="example" class="cell-border" style="width:100%">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Extn.</th>
+                    <th>Start date</th>
+                    <th>Salary</th>
+                    <th>Extn.</th>
+                    <th>E-mail</th>
+                  </tr>
+                </thead>
+              </table>
             </div>
+            <div id="nav2">
+
+            </div>
+          </div>
+
         </div>
+      </div>
+      <div class="col-md-3" id="rightMenu">
+        <div class="card">
+          <h5 class="card-header bg-primary">
+            Notes
+          </h5>
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">PAID CL</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">PAID BF</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">EXPECTED LR</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+
+          </div>
+
+        </div>
+        <div class="card" style="margin-top: 15px;">
+          <h5 class="card-header bg-primary">
+            Chart
+          </h5>
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">PAID CL</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">PAID BF</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">EXPECTED LR</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-4"></div>
+          <div class="col-sm-2">
+            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+          </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">PAID CL</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="col-xs-12 col-lg-6" id="chartAreaModal"></div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-lg-6" id="chartArea"></div>
+
+
+
+          </div>
+        </div>
+      </div>
     </div>
 
 </body>
 <script src="chart.js"></script>
+<script src="chartModal.js"></script>
 <script src="navigation.js"></script>
+
 </html>

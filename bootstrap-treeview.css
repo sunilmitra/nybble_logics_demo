@@ -17,21 +17,203 @@
  * limitations under the License.
  * ========================================================= */
 
-.treeview .list-group-item {
+ .treeview .list-group-item {
 	cursor: pointer;
-}
-
-.treeview span.indent {
+  }
+  
+  .treeview span.indent {
 	margin-left: 10px;
 	margin-right: 10px;
-}
-
-.treeview span.icon {
+  }
+  
+  .treeview span.icon {
 	width: 12px;
 	margin-right: 5px;
-}
-
-.treeview .node-disabled {
+  }
+  
+  .treeview .node-disabled {
 	color: silver;
 	cursor: not-allowed;
-}
+  }
+  
+  /* Remove default bullets */
+  ul,
+  #myUL {
+	list-style-type: none;
+  }
+  
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+	margin: 0;
+	padding: 50px 0 0 0;
+  }
+  
+  /* Style the caret/arrow */
+  .caret {
+	cursor: pointer;
+	user-select: none; /* Prevent text selection */
+  }
+  
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+	/* content: "\25B6";
+	  color: black;
+	  display: inline-block;
+	  margin-right: 6px; */
+  }
+  
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down {
+	transform: rotate(90deg);
+	transition: transform 1s;
+  }
+  .caret-up {
+	transform: rotate(0deg);
+	transition: transform 1s;
+  }
+  
+  /* Hide the nested list */
+  .nested {
+	display: none;
+  }
+  
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+	display: block;
+  }
+  
+  .logo {
+	background: #f7f7f7;
+	position: relative;
+	max-height: 100px;
+	padding: 30px 0 25px 10px;
+  }
+
+  #sidebarIcon {
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+  }
+  #rightSidebarIcon {
+	height: 60px;
+	width: 60px;
+	cursor: pointer;
+  }
+  
+  .right-sidebar-icon-rotate {
+	transform: rotate(-180deg);
+	-ms-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+  }
+  
+  .sidebar-icon-rotate {
+	transform: rotate(-180deg);
+	-ms-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+	transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+  }
+  
+  .sidebar-icon-rotate-opp {
+	transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+  }
+  
+  #sidebar {
+	background-color: rgb(52, 50, 57);
+	transition: width 0.5s;
+	font-size: 16px !important;
+	color: white;
+  }
+  
+  #rightMenu {
+	transition: width 0.5s;
+  }
+  
+  #sidebar li > div:hover {
+	color: grey;
+  }
+  
+  .activeMenuItem {
+	color: #14b2e6 !important;
+  }
+  
+  #sidebar li {
+	padding: 0 10px;
+  }
+  #sidebar .nested li {
+	padding: 0 !important;
+  }
+  #sidebar li > div {
+	padding: 0.75rem 1.25rem;
+	border-top: 2px solid grey;
+  }
+  
+  #sidebar .nested li > div {
+	padding: 0.75rem 0 !important;
+	border-top: none !important;
+  }
+  
+  #sidebar li {
+	cursor: pointer;
+  }
+  
+  .triangle-left,
+  .triangle-bottom {
+	width: 0;
+	height: 0;
+	/* margin: 30px auto; */
+  }
+  .triangle-left,
+  .triangle-right {
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+  }
+  
+  .triangle-right {
+	border-left: 10px solid white;
+	display: inline-block;
+	margin-right: 5px;
+  }
+  .triangle-bottom {
+	border-top: 30px solid black;
+  }
+  
+  .collapse {
+	visibility: hidden;
+  }
+  .collapse.show {
+	visibility: visible;
+	display: block;
+  }
+  .collapsing {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	-webkit-transition-property: height, visibility;
+	transition-property: height, visibility;
+	-webkit-transition-duration: 5s;
+	transition-duration: 5s;
+	-webkit-transition-timing-function: ease;
+	transition-timing-function: ease;
+  }
+  .collapsing.width {
+	-webkit-transition-property: width, visibility;
+	transition-property: width, visibility;
+	width: 0;
+	height: auto;
+  }
+  
